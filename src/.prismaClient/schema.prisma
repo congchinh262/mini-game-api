@@ -1,0 +1,35 @@
+datasource db {
+    provider = "postgres"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+    output   = "../src/.prismaClient"
+}
+
+model User {
+    id           Int         @id @default(autoincrement())
+    name         String      @unique @db.VarChar(256)
+    password     String
+    highestScore Int         @default(0)
+    games        Game[]
+    credential   Credential?
+}
+
+model Game {
+    id        String   @id @default(cuid())
+    sessionId String
+    expiredAt DateTime
+    score     Int      @default(0)
+    playedBy  User     @relation(fields: [userId], references: [id])
+    userId    Int
+}
+
+model Credential {
+    id        String   @id @default(cuid())
+    cred      String   @default(cuid())
+    expiredAt DateTime
+    user      User     @relation(fields: [userId], references: [id])
+    userId    Int      @unique
+}
