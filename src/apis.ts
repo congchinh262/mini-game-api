@@ -2,6 +2,7 @@ import * as express from "express";
 import cuid from "cuid";
 import { prismaClient } from "./prisma";
 import bcrypt from "bcrypt";
+import { Azure } from "./azure";
 
 const validatePw = async (password: string, hash: string) => {
   return await bcrypt.compare(password, hash);
@@ -248,3 +249,20 @@ export const endGame = async (req: express.Request, res: express.Response) => {
     },
   });
 };
+
+// export const getAzureSecret = async (
+//   req: express.Request,
+//   res: express.Response
+// ) => {
+//   const { name } = req.query;
+//   try {
+//     const secret = await Azure.getSecrets(`${name}`);
+//     return res.send({
+//       name: secret.name,
+//       properties: secret.properties,
+//       value: secret.value,
+//     });
+//   } catch (e) {
+//     return res.send(`${e}`);
+//   }
+// };

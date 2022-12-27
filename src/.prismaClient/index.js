@@ -154,7 +154,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/henin/Documents/Projects/MS-demo/demo-game/src/.prismaClient",
+      "value": "/Users/henin/Documents/Projects/MS-demo/mini-game-api/src/.prismaClient",
       "fromEnvVar": null
     },
     "config": {
