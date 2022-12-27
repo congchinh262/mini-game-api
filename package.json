@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.ts",
-    "start:dev": "docker-compose -f dev.yaml up",
-    "start:prod": "nodemon dist/index.js",
+    "start": "nodemon dist/index.js",
+    "start:dev": "nodemon index.ts",
     "build:prepare":"cp -R src/.prismaClient dist/src && cp -R node_modules dist && cp -R package.json dist",
     "build":"npm run initPrisma && tsc && npm run build:prepare",
     "prismaStudio": "DATABASE_URL=mongodb://dev:dev@localhost:27017/dev?authSource=admin npx prisma studio",
