@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon lib/index.js",
+    "start": "node lib/index.js",
     "start:dev": "nodemon index.ts",
     "build:prepare":"cp -R src/.prismaClient lib/src && cp -R node_modules lib && cp -R package.json lib",
-    "build":"npm run initPrisma && tsc && npm run build:prepare",
+    "build":"tsc",
     "prismaStudio": "DATABASE_URL=mongodb://dev:dev@localhost:27017/dev?authSource=admin npx prisma studio",
     "initPrisma": "npx prisma generate"
   },

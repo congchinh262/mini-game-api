@@ -1,0 +1,7 @@
+version: "3.4"
+services:
+  backend:
+    image: node:14-alpine
+    environment:
+        PORT: 8000
+        DATABASE_URL: postgres://dev:dcm2022!@gamedev.postgres.database.azure.com/postgres
